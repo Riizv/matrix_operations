@@ -1,0 +1,16 @@
+# ninja log v5
+2	387	1715435750539122507	CMakeFiles/matrix_operations.dir/Matrix.cpp.o	a20deda8fdf362cd
+1	407	1715435869403746510	CMakeFiles/matrix_operations.dir/main.cpp.o	3b99d6ca174e0235
+407	501	1715435869498371736	matrix_operations	78ed00a5cc33753c
+0	69	1716823909814499130	build.ninja	234349fef27885e3
+6	67	1716823909814499130	build.ninja	234349fef27885e3
+2	488	1716823910308124791	CMakeFiles/matrix_operations.dir/Matrix.cpp.o	a20deda8fdf362cd
+2	510	1716824255222005958	CMakeFiles/matrix_operations.dir/Matrix.cpp.o	a20deda8fdf362cd
+1	456	1716824327865122632	CMakeFiles/matrix_operations.dir/main.cpp.o	3b99d6ca174e0235
+456	605	1716824328015468193	matrix_operations	78ed00a5cc33753c
+2	435	1716824377367748949	CMakeFiles/matrix_operations.dir/Matrix.cpp.o	a20deda8fdf362cd
+2	450	1716824377382962271	CMakeFiles/matrix_operations.dir/main.cpp.o	3b99d6ca174e0235
+450	566	1716824377499004368	matrix_operations	78ed00a5cc33753c
+1	430	1716824770646734686	CMakeFiles/matrix_operations.dir/main.cpp.o	3b99d6ca174e0235
+1	433	1716824770650593002	CMakeFiles/matrix_operations.dir/Matrix.cpp.o	a20deda8fdf362cd
+433	528	1716824770745160494	matrix_operations	78ed00a5cc33753c

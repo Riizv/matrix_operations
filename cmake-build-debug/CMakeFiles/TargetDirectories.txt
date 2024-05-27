@@ -1,0 +1,3 @@
+/Users/kacperchojnowski/Documents/CPP_CLion_Projects/matrix_operations/cmake-build-debug/CMakeFiles/matrix_operations.dir
+/Users/kacperchojnowski/Documents/CPP_CLion_Projects/matrix_operations/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kacperchojnowski/Documents/CPP_CLion_Projects/matrix_operations/cmake-build-debug/CMakeFiles/rebuild_cache.dir
