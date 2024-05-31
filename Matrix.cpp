@@ -24,7 +24,7 @@ Matrix::~Matrix() {
         delete[] m[i];
     delete[] m;
     m = 0;
-    //w = 0;
+    w = 0;
     const int *pc;
     pc = &w;
     int *p;
@@ -62,12 +62,26 @@ Matrix Matrix::add(const Matrix &mac, Matrix &res) {
     return wyn;
 }
 
-Matrix Matrix::operator+(const Matrix v) const
-{
+Matrix Matrix::operator+(const Matrix& v) const {
     Matrix wyn(w, k);
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
             wyn.m[i][j] = m[i][j] + v.m[i][j];
+    return wyn;
+}
+Matrix Matrix::operator-(const Matrix& v) const {
+    Matrix wyn(w, k);
+    for (int i = 0; i < w; i++)
+        for (int j = 0; j < k; j++)
+            wyn.m[i][j] = m[i][j] - v.m[i][j];
+    return wyn;
+}
+
+Matrix operator*(const double x, const Matrix &v) {
+    Matrix wyn(v.w, v.k);
+    for (int i = 0; i < v.w; i++)
+        for (int j = 0; j < v.k; j++)
+            wyn.m[i][j] = x * v.m[i][j];
     return wyn;
 }
 

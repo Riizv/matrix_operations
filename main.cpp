@@ -28,11 +28,14 @@ int main() {
         mac1.state();
 
         //mac3 = mac1.add(mac2);
-        //mac1+mac2;
+        mac3 = mac1+mac2;
         //mac3.state();
        // mac1.multiply(mac2, mac3);
         std::cout << std::endl;
-        mac2.state();
+        mac3.state();
+        std::cout << std::endl;
+        mac3 = mac3 - mac1 - mac2;
+        mac3.state();
         std::cout << std::endl;
        // mac3.state();
         std::cout << std::endl;
