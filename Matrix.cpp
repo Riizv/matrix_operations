@@ -50,28 +50,25 @@ double Matrix::get(int i, int j) {
     return m[i - 1][j - 1];
 }
 
-//Matrix Matrix::add(const Matrix& mac){
-//    if(w != mac.w || k != mac.k){
-//        std::cout << "Matrix add - can not add two different dimension in matrix ";
-//        exit(9);
-//    }
-//    Matrix wyn(w, k);
-//    for(int i = 0; i < w; i++)
-//        for(int j = 0; j < k; i++)
-//            wyn.m[i][j] = m[i][j] + mac.m[i][j];
-//
-//}
-
-void Matrix::add(const Matrix &mac, Matrix &res) {
+Matrix Matrix::add(const Matrix &mac, Matrix &res) {
     if (this->w != mac.w || k != mac.k) {
         std::cout << "Matrix add - size not match";
         exit(9);
     }
-    //Macierz wyn(w, k);
+    Matrix wyn(w, k);
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
             res.m[i][j] = m[i][j] + mac.m[i][j];
-    //return wyn;
+    return wyn;
+}
+
+Matrix Matrix::operator+(const Matrix v) const
+{
+    Matrix wyn(w, k);
+    for (int i = 0; i < w; i++)
+        for (int j = 0; j < k; j++)
+            wyn.m[i][j] = m[i][j] + v.m[i][j];
+    return wyn;
 }
 
 Matrix &Matrix::operator=(const Matrix org) {
