@@ -50,26 +50,15 @@ double Matrix::get(int i, int j) {
     return m[i - 1][j - 1];
 }
 
-Matrix Matrix::add(const Matrix &mac, Matrix &res) {
-    if (this->w != mac.w || k != mac.k) {
-        std::cout << "Matrix add - size not match";
-        exit(9);
-    }
-    Matrix wyn(w, k);
-    for (int i = 0; i < w; i++)
-        for (int j = 0; j < k; j++)
-            res.m[i][j] = m[i][j] + mac.m[i][j];
-    return wyn;
-}
-
-Matrix Matrix::operator+(const Matrix& v) const {
+Matrix Matrix::operator+(const Matrix &v) const {
     Matrix wyn(w, k);
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
             wyn.m[i][j] = m[i][j] + v.m[i][j];
     return wyn;
 }
-Matrix Matrix::operator-(const Matrix& v) const {
+
+Matrix Matrix::operator-(const Matrix &v) const {
     Matrix wyn(w, k);
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
@@ -78,11 +67,11 @@ Matrix Matrix::operator-(const Matrix& v) const {
 }
 
 Matrix operator*(const double x, const Matrix &v) {
-    Matrix wyn(v.w, v.k);
+    Matrix res(v.w, v.k);
     for (int i = 0; i < v.w; i++)
         for (int j = 0; j < v.k; j++)
-            wyn.m[i][j] = x * v.m[i][j];
-    return wyn;
+            res.m[i][j] = x * v.m[i][j];
+    return res;
 }
 
 Matrix &Matrix::operator=(const Matrix org) {
@@ -92,16 +81,15 @@ Matrix &Matrix::operator=(const Matrix org) {
     return *this;
 }
 
-void Matrix::multiply(const Matrix &macm, Matrix &resm) {
-    if (this->w != macm.w || k != macm.k) {
-        std::cout << "Matrix multiply - size not match";
-        exit(9);
-    }
-    //Macierz wyn(w, k);
+Matrix Matrix::operator*(const Matrix &mat) const {
+    if (w != mat.w || k != mat.k)
+        throw std::invalid_argument("Matrix multiply - size not match");
+
+    Matrix res(w, mat.k);
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
-            resm.m[i][j] = m[i][j] * macm.m[i][j];
-    //return wyn;
+            res.m[i][j] += m[i][j] = m[i][j] * mat.m[i][j];
+    return res;
 }
 
 void Matrix::state() {

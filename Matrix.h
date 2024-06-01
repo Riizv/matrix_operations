@@ -12,11 +12,10 @@ public:
     ~Matrix();
     bool set(int i, int j, double x);
     double get(int i, int j);
-    Matrix add(const Matrix& mac, Matrix& res);
     Matrix operator+(const Matrix& v) const;
     Matrix operator-(const Matrix& v) const;
-    Matrix& operator=(const Matrix v);
-    void multiply(const Matrix& macm, Matrix& resm);
+    Matrix& operator=(const Matrix org);
+    Matrix operator*(const Matrix& mat) const;
     friend Matrix operator*(const double x, const Matrix& v);
 
     void state();
