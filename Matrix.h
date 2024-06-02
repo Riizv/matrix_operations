@@ -4,22 +4,21 @@
 
 #ifndef MATRIX_OPERATIONS_MATRIX_H
 #define MATRIX_OPERATIONS_MATRIX_H
+#include <iostream>
 
 template<typename T>
 class Matrix {
 public:
-    Matrix(int wie, int kol);
-    Matrix(const Matrix& org);
+    Matrix<T>(int wie, int kol);
+    Matrix<T>(const Matrix<T>& org);
     ~Matrix();
-    bool set(int i, int j, double x);
-    double get(int i, int j);
-    Matrix operator+(const Matrix& v) const;
-    Matrix operator-(const Matrix& v) const;
-    Matrix& operator=(const Matrix org);
-    Matrix operator*(const Matrix& mat) const;
+    T& operator()(Matrix &m, size_t i, size_t j);
+    Matrix<T> operator+(const Matrix& v) const;
+    Matrix<T> operator-(const Matrix& v) const;
+    Matrix<T>& operator=(const Matrix org);
+    Matrix<T> operator*(const Matrix& mat) const;
     friend Matrix operator*(const double x, const Matrix& v);
 
-    template<typename Q>
     void state() const;
 private:
     double **m;
@@ -49,11 +48,42 @@ Matrix<T>::~Matrix() {
 }
 
 template<typename T>
-T Matrix<T>::set(int i, int j, double x) {
+Matrix<T>::Matrix(const Matrix<T> &org) : w(org.w), k(org.k) {
+    m = new double *[w];
+    for (int i = 0; i < w; i++)
+        m[i] = new double[k];
+    for (int i = 0; i < w; i++)
+        for (int j = 0; j < k; j++)
+            m[i][j] = org.m[i][j];
+}
+
+template<typename T>
+T& Matrix<T>::operator()(Matrix &m, size_t i, size_t j) {
     if (i < 1 || i > w || j < 1 || j > k)
-        return false;
-    m[i - 1][j - 1] = x;
-    return true;
+        throw std::out_of_range("Index out of range");
+    return m[i - 1][j - 1];
+}
+
+template<typename T>
+Matrix<T> Matrix<T>::operator+(const Matrix &v) const {
+    if (w != v.w || k != v.k)
+       throw std::invalid_argument("Matrices size not match");
+    Matrix wyn(w, k);
+    for (int i = 0; i < w; i++)
+        for (int j = 0; j < k; j++)
+            wyn.m[i][j] = m[i][j] + v.m[i][j];
+    return wyn;
+}
+
+template<typename T>
+void Matrix<T>::state() const {
+    std::cout << "[ " << w << " , " << k << " ] \n";
+    for (int i = 0; i < w; i++) {
+        for (int j = 0; j < k; j++) {
+            std::cout << m[i][j] << "\t";
+        }
+        std::cout << std::endl;
+    }
 }
 
 #endif //MATRIX_OPERATIONS_MATRIX_H
