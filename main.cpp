@@ -15,13 +15,14 @@ int main() {
             for (int j = 1; j <= 3; j++) {
                 double x;
                 std::cin >> x;
-                mac1.set(i, j, x);
+                mac1 = (mac1, x, j);
+
             }
         for (int i = 1; i <= 2; i++)
             for (int j = 1; j <= 3; j++) {
                 double x;
                 std::cin >> x;
-                mac2.set(i, j, x);
+                mac2 = (mac2, x, j);
             }
         mac1.state();
 //

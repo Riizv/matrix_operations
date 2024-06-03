@@ -15,7 +15,7 @@ public:
     T& operator()(Matrix &m, size_t i, size_t j);
     Matrix<T> operator+(const Matrix& v) const;
     Matrix<T> operator-(const Matrix& v) const;
-    Matrix<T>& operator=(const Matrix org);
+    Matrix<T>& operator=(const Matrix& org);
     Matrix<T> operator*(const Matrix& mat) const;
     friend Matrix operator*(const double x, const Matrix& v);
 
@@ -67,12 +67,31 @@ T& Matrix<T>::operator()(Matrix &m, size_t i, size_t j) {
 template<typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix &v) const {
     if (w != v.w || k != v.k)
-       throw std::invalid_argument("Matrices size not match");
+       throw std::invalid_argument("Matrices `size not match");
     Matrix wyn(w, k);
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
             wyn.m[i][j] = m[i][j] + v.m[i][j];
     return wyn;
+}
+
+template<typename T>
+Matrix<T> Matrix<T>::operator-(const Matrix &v) const {
+    if (w != v.w || k != v.k)
+        throw std::invalid_argument("Matrices `size not match");
+    Matrix wyn(w, k);
+    for (int i = 0; i < w; i++)
+        for (int j = 0; j < k; j++)
+            wyn.m[i][j] = m[i][j] - v.m[i][j];
+    return wyn;
+}
+
+template<typename T>
+Matrix<T>& Matrix<T>::operator=(const Matrix& org) {
+    for (int i = 0; i < w; i++)
+        for (int j = 0; j < k; j++)
+            m[i][j] = org.m[i][j];
+    return *this;
 }
 
 template<typename T>
