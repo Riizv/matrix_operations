@@ -12,10 +12,10 @@ public:
     Matrix<T>(int wie, int kol);
     Matrix<T>(const Matrix<T>& org);
     ~Matrix();
-    T& operator()(Matrix &m, size_t i, size_t j);
+    T& operator()( size_t i, size_t j);
     Matrix<T> operator+(const Matrix& v) const;
     Matrix<T> operator-(const Matrix& v) const;
-    Matrix<T>& operator=(const Matrix& org);
+    Matrix<T>& operator=(const Matrix<T>& org);
     Matrix<T> operator*(const Matrix& mat) const;
     friend Matrix operator*(const double x, const Matrix& v);
 
@@ -58,7 +58,7 @@ Matrix<T>::Matrix(const Matrix<T> &org) : w(org.w), k(org.k) {
 }
 
 template<typename T>
-T& Matrix<T>::operator()(Matrix &m, size_t i, size_t j) {
+T& Matrix<T>::operator()( size_t i, size_t j) {
     if (i < 1 || i > w || j < 1 || j > k)
         throw std::out_of_range("Index out of range");
     return m[i - 1][j - 1];
@@ -87,7 +87,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix &v) const {
 }
 
 template<typename T>
-Matrix<T>& Matrix<T>::operator=(const Matrix& org) {
+Matrix<T>& Matrix<T>::operator=(const Matrix<T>& org) {
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
             m[i][j] = org.m[i][j];
