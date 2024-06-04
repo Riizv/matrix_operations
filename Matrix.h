@@ -51,9 +51,9 @@ Matrix<T>::~Matrix() {
 
 template<typename T>
 Matrix<T>::Matrix(const Matrix<T> &org) : w(org.w), k(org.k) {
-    m = new double *[w];
+    m = new T *[w];
     for (int i = 0; i < w; i++)
-        m[i] = new double[k];
+        m[i] = new T[k];
     for (int i = 0; i < w; i++)
         for (int j = 0; j < k; j++)
             m[i][j] = org.m[i][j];
