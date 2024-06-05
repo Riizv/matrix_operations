@@ -1,5 +1,5 @@
 //
-// Created by Kacper Chojnowski on 14/04/2024.
+// Created by X on 14/04/2024.
 //
 
 #ifndef MATRIX_OPERATIONS_MATRIX_H
