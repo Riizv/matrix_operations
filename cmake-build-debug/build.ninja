@@ -55,12 +55,6 @@ build CMakeFiles/matrix_operations.dir/main.cpp.o: CXX_COMPILER__matrix_operatio
   OBJECT_DIR = CMakeFiles/matrix_operations.dir
   OBJECT_FILE_DIR = CMakeFiles/matrix_operations.dir
 
-build CMakeFiles/matrix_operations.dir/Matrix.cpp.o: CXX_COMPILER__matrix_operations_unscanned_Debug /Users/kacperchojnowski/Documents/CPP_CLion_Projects/matrix_operations/Matrix.cpp || cmake_object_order_depends_target_matrix_operations
-  DEP_FILE = CMakeFiles/matrix_operations.dir/Matrix.cpp.o.d
-  FLAGS = -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/matrix_operations.dir
-  OBJECT_FILE_DIR = CMakeFiles/matrix_operations.dir
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target matrix_operations
@@ -69,7 +63,7 @@ build CMakeFiles/matrix_operations.dir/Matrix.cpp.o: CXX_COMPILER__matrix_operat
 #############################################
 # Link the executable matrix_operations
 
-build matrix_operations: CXX_EXECUTABLE_LINKER__matrix_operations_Debug CMakeFiles/matrix_operations.dir/main.cpp.o CMakeFiles/matrix_operations.dir/Matrix.cpp.o
+build matrix_operations: CXX_EXECUTABLE_LINKER__matrix_operations_Debug CMakeFiles/matrix_operations.dir/main.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/matrix_operations.dir
   POST_BUILD = :

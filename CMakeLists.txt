@@ -4,5 +4,4 @@ project(matrix_operations)
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(matrix_operations main.cpp
-        Matrix.cpp
         Matrix.h)
